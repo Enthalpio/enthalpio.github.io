@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частые вопросы — Enthalpio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        details {
+            background: #f8faff;
+            border-left: 4px solid #0D47A1;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        details[open] {
+            background: #eef3fb;
+        }
+        
+        details:hover {
+            background: #f0f4f8;
+        }
+        
+        summary {
+            font-weight: 600;
+            font-size: 16px;
+            color: #0D47A1;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::after {
+            content: '+';
+            font-size: 24px;
+            color: #0D47A1;
+            transition: transform 0.2s;
+        }
+        
+        details[open] summary::after {
+            content: '−';
+        }
+        
+        details p {
+            margin-top: 12px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        details strong {
+            color: #212121;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo.png" alt="Enthalpio" class="logo">
+                <div>
+                    <h1>Enthalpio</h1>
+                    <p class="tagline">Экосистема климатической отрасли</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="features" style="padding: 40px 0;">
+            <div class="container">
+                <h2>Частые вопросы</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 32px;">
+                    Ответы на самые популярные вопросы о Enthalpio.
+                    Полный FAQ — внутри приложения.
+                </p>
+
+                <details>
+                    <summary>Что такое Enthalpio?</summary>
+                    <p>
+                        <strong>Enthalpio</strong> — экосистема климатической отрасли. 
+                        Инженерное приложение для расчёта и подбора климатических систем:
+                        холодильного оборудования, вентиляции и кондиционирования.
+                    </p>
+                    <p>
+                        Название происходит от <strong>энтальпии</strong> — термодинамической 
+                        функции, которая используется в расчёте влажного воздуха.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Какие расчёты поддерживает приложение?</summary>
+                    <p>Полный набор инженерных расчётов:</p>
+                    <p>
+                        <strong>🔹 Холодильное оборудование:</strong><br>
+                        • Расчёт теплопритоков (Q1–Q6)<br>
+                        • Подбор холодопроизводительности (СТ / НТ / Шоковая)<br>
+                        • Расчёт фреонопровода: диаметры, скорости, потери давления, маслопетли<br>
+                        • Справочник из 30 продуктов
+                    </p>
+                    <p>
+                        <strong>🔹 Вентиляция:</strong><br>
+                        • Расчёт воздухообмена по 4 критериям<br>
+                        • Мощности нагрева и охлаждения<br>
+                        • Расчёт воздуховодов и подбор вентилятора<br>
+                        • Справочник 26 вредных веществ
+                    </p>
+                    <p>
+                        <strong>🔹 Кондиционирование:</strong><br>
+                        • Нагрузки (лето / зима)<br>
+                        • Подбор сплит-систем по BTU<br>
+                        • Ток, кабель, автомат, трубы, дренаж
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Сколько стоит Enthalpio?</summary>
+                    <p>
+                        <strong>Бесплатно.</strong> Все расчёты, PDF-экспорт, сохранение 
+                        проектов и справочники доступны без оплаты.
+                    </p>
+                    <p>
+                        В будущих версиях (v1.5+) планируется расширенный функционал 
+                        для производителей и корпоративных клиентов.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Работает ли приложение офлайн?</summary>
+                    <p>
+                        <strong>Да.</strong> Все расчёты, PDF и сохранение проектов 
+                        выполняются локально на устройстве пользователя. Интернет 
+                        не требуется.
+                    </p>
+                    <p>
+                        Приложение <strong>не собирает</strong> персональные данные. 
+                        Всё хранится только на устройстве.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Есть ли ПК-версия?</summary>
+                    <p>
+                        <strong>В разработке.</strong> Мы работаем над версией для 
+                        Windows 10 / 11. Она появится на этом сайте.
+                    </p>
+                    <p>
+                        ПК-версия даст:
+                    </p>
+                    <p>
+                        • Большой экран — все данные на одном экране<br>
+                        • Удобный ввод с клавиатуры<br>
+                        • Печать PDF напрямую<br>
+                        • Работу с файлами проектов
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Как сохранить проект?</summary>
+                    <p>
+                        На финальном шаге расчёта нажмите <strong>«Сохранить проект»</strong>. 
+                        Введите название, заказчика и объект. Проект сохранится 
+                        локально на устройстве.
+                    </p>
+                    <p>
+                        Вернуться к проекту можно через раздел <strong>«Мои проекты»</strong> 
+                        на главном экране.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Как экспортировать PDF?</summary>
+                    <p>
+                        На финальном шаге расчёта нажмите <strong>«PDF»</strong>. 
+                        Откроется диалог с полями «Объект» и «Исполнитель».
+                    </p>
+                    <p>
+                        PDF содержит все посчитанные разделы объекта 
+                        (М1 / М2 / М3 / М4 / М5) и нормативную базу: 
+                        СП 60.13330.2020, СП 131.13330.2025, СП 50.13330, 
+                        СанПиН 1.2.3685-21, ПУЭ, ASTM B280, методика ВНИХИ.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Какие нормативы используются в расчётах?</summary>
+                    <p>
+                        Расчёты выполняются по актуальным нормативным документам:
+                    </p>
+                    <p>
+                        • <strong>СП 60.13330.2020</strong> — отопление, вентиляция, кондиционирование<br>
+                        • <strong>СП 131.13330.2025</strong> — строительная климатология<br>
+                        • <strong>СП 50.13330</strong> — тепловая защита зданий<br>
+                        • <strong>СанПиН 1.2.3685-21</strong> — ПДК вредных веществ<br>
+                        • <strong>ПУЭ</strong> — электрооборудование<br>
+                        • <strong>ASTM B280</strong> — медные трубы<br>
+                        • <strong>Методика ВНИХИ</strong> — расчёты холодильных камер
+                    </p>
+                </details>
+
+                <details>
+                    <summary>С какой точностью считает приложение?</summary>
+                    <p>
+                        Точность расчётов — <strong>±10%</strong> относительно эталонных 
+                        расчётов по СП и ВНИХИ.
+                    </p>
+                    <p>
+                        Для сравнения: инженер «в уме» обычно даёт ±15–20%. 
+                        Enthalpio — точнее.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Как связаться с разработчиком?</summary>
+                    <p>
+                        По всем вопросам, предложениям и замечаниям пишите на 
+                        <strong>enthalpio@mail.ru</strong>.
+                    </p>
+                    <p>
+                        Мы открыты к сотрудничеству с производителями климатического 
+                        оборудования. Если вы хотите интегрировать ваш каталог 
+                        в приложение — напишите нам.
+                    </p>
+                </details>
+
+                <p style="text-align: center; margin-top: 40px; color: #666; font-style: italic;">
+                    Полный FAQ — в приложении, раздел «Частые вопросы».
+                </p>
+
+                <div class="buttons" style="justify-content: center; margin-top: 32px;">
+                    <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" 
+                       class="btn btn-primary" style="background: #0D47A1; color: white;">
+                        Скачать в RuStore
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>ИП Петров Павел Игоревич</p>
+            <p>ОГРНИП: 320602700017796</p>
+            <p>г. Ногинск, Московская область</p>
+            <p>
+                <a href="mailto:enthalpio@mail.ru">enthalpio@mail.ru</a> · 
+                <a href="privacy.html">Политика конфиденциальности</a> · 
+                <a href="oferta.html">Пользовательское соглашение</a> · 
+                <a href="faq.html">FAQ</a>
+            </p>
+            <p class="copyright">© 2026 Enthalpio — скрытая теплота. Скрытый потенциал.</p>
+        </div>
+    </footer>
+</body>
+</html>
