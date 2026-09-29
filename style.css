@@ -220,6 +220,23 @@ footer .copyright {
     }
     
     .btn {
+        
+/* Кнопка "На главную" в шапке */
+.back-home {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 20px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.back-home:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
         width: 100%;
         text-align: center;
     }
