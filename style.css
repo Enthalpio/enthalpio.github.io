@@ -241,3 +241,222 @@ footer .copyright {
         text-align: center;
     }
 }
+
+
+/* ============================================================
+   БЛОК «ПОЧЕМУ ENTHALPIO»
+   ============================================================ */
+
+.advantages {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.advantages h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0D47A1;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.advantages-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.advantages-list li:last-child {
+    border-bottom: none;
+}
+
+.advantages-list strong {
+    color: #0D47A1;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+
+/* ============================================================
+   БЛОК «ТАРИФЫ»
+   ============================================================ */
+
+.pricing {
+    padding: 60px 0;
+    background: white;
+}
+
+.pricing h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #0D47A1;
+}
+
+.pricing-intro {
+    text-align: center;
+    color: #757575;
+    margin-bottom: 40px;
+    font-size: 15px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.pricing-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.pricing-card:hover {
+    border-color: #1976D2;
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.1);
+}
+
+.pricing-card-featured {
+    border-color: #0D47A1;
+    box-shadow: 0 4px 16px rgba(13, 71, 161, 0.15);
+}
+
+.pricing-card h3 {
+    color: #0D47A1;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.pricing-card .price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0D47A1;
+    margin-bottom: 4px;
+}
+
+.pricing-card .price-period {
+    font-size: 13px;
+    color: #757575;
+    margin-bottom: 16px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-card li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: 14px;
+    color: #424242;
+}
+
+.pricing-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2E7D32;
+    font-weight: bold;
+}
+
+.pricing-card .badge {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    background: #0D47A1;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.pricing-card .badge-save {
+    background: #2E7D32;
+}
+
+.pricing-note {
+    text-align: center;
+    font-size: 13px;
+    color: #757575;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   АДАПТИВ — планшет / телефон
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .features h2,
+    .advantages h2,
+    .pricing h2,
+    .cta h2 {
+        font-size: 26px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .features,
+    .advantages,
+    .pricing,
+    .cta {
+        padding: 40px 0;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card .price {
+        font-size: 26px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
