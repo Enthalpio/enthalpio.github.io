@@ -75,39 +75,50 @@
                 <h2>Как выглядит ПК-версия</h2>
                 <p class="screenshots-intro">
                     Sidebar слева, все данные на одном экране, 
-                    сквозной PDF в один клик.
+                    сквозной PDF в один клик. 
+                    Нажмите на скриншот, чтобы увеличить.
                 </p>
 
                 <div class="screenshots-grid">
-                    <div class="screenshot">
+                    <a href="screenshots/desktop-main.png" 
+                       class="screenshot" 
+                       data-lightbox>
                         <img src="screenshots/desktop-main.png" 
                              alt="Главный экран Enthalpio для ПК">
                         <p class="screenshot-caption">Главный экран — быстрый старт</p>
-                    </div>
+                    </a>
 
-                    <div class="screenshot">
+                    <a href="screenshots/desktop-freon.png" 
+                       class="screenshot" 
+                       data-lightbox>
                         <img src="screenshots/desktop-freon.png" 
                              alt="Расчёт фреонопровода">
                         <p class="screenshot-caption">М3 — Фреонопровод: диаметры, ΔP, рекомендации</p>
-                    </div>
+                    </a>
 
-                    <div class="screenshot">
+                    <a href="screenshots/desktop-duct.png" 
+                       class="screenshot" 
+                       data-lightbox>
                         <img src="screenshots/desktop-duct.png" 
                              alt="Расчёт воздуховода">
                         <p class="screenshot-caption">М4 — Воздуховод: потери давления, вентилятор</p>
-                    </div>
+                    </a>
 
-                    <div class="screenshot">
+                    <a href="screenshots/desktop-datacenter.png" 
+                       class="screenshot" 
+                       data-lightbox>
                         <img src="screenshots/desktop-datacenter.png" 
                              alt="Подбор CRAC для ЦОД">
                         <p class="screenshot-caption">М6 — ЦОД: подбор прецизионных кондиционеров</p>
-                    </div>
+                    </a>
 
-                    <div class="screenshot">
+                    <a href="screenshots/desktop-chiller.png" 
+                       class="screenshot" 
+                       data-lightbox>
                         <img src="screenshots/desktop-chiller.png" 
                              alt="Модуль чиллеров">
                         <p class="screenshot-caption">М7 — Чиллеры: Comfort, Process, гидравлика</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -200,5 +211,50 @@
             <p class="copyright">© 2026 Enthalpio · ПК-версия 1.0.0 — скрытая теплота. Скрытый потенциал.</p>
         </div>
     </footer>
+
+    <!-- ЛАЙТБОКС (модальное окно для скриншотов) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.lightbox-close');
+
+            // Открыть по клику на скриншот
+            document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    lightboxImg.src = this.getAttribute('href');
+                    lightbox.classList.add('active');
+                });
+            });
+
+            // Закрыть по крестику
+            closeBtn.addEventListener('click', function () {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            });
+
+            // Закрыть по клику на фон
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    lightboxImg.src = '';
+                }
+            });
+
+            // Закрыть по Esc
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    lightboxImg.src = '';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
