@@ -54,7 +54,6 @@ header h1 {
     opacity: 0.9;
 }
 
-/* Кнопка «На главную» */
 .back-home {
     color: white;
     text-decoration: none;
@@ -425,11 +424,15 @@ footer .copyright {
 }
 
 .screenshot {
+    display: block;
     background: white;
     border-radius: 12px;
     padding: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    cursor: zoom-in;
 }
 
 .screenshot:hover {
@@ -450,6 +453,54 @@ footer .copyright {
     color: #555;
     text-align: center;
     font-weight: 500;
+}
+
+/* ============================================================
+   ЛАЙТБОКС — модальное окно для скриншотов
+   ============================================================ */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 44px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10000;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #ccc;
 }
 
 /* ============================================================
@@ -608,5 +659,11 @@ footer .copyright {
 
     .pdf-icon {
         font-size: 48px;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 20px;
+        font-size: 36px;
     }
 }
