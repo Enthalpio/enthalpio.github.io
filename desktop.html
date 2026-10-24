@@ -13,15 +13,13 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            flex-wrap: wrap; /* Чтобы на мобильных переносилось */
+            flex-wrap: wrap;
         }
         .header-left {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
-        /* Плашка */
         .patent-badge {
             display: flex;
             align-items: center;
@@ -57,8 +55,6 @@
         .patent-text span {
             color: #a0c4ff;
         }
-
-        /* --- МОДАЛЬНОЕ ОКНО НА ЧИСТОМ CSS --- */
         .modal {
             display: none; 
             position: fixed;
@@ -95,7 +91,6 @@
         .close:hover {
             color: #bbb;
         }
-
         @media (max-width: 768px) {
             .header-content { flex-direction: column; gap: 15px; }
             .header-left { flex-direction: column; text-align: center; }
@@ -106,7 +101,6 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <!-- ЛЕВАЯ ЧАСТЬ: Кнопка назад + Логотип -->
                 <div class="header-left">
                     <a href="index.html" class="back-home">← На главную</a>
                     <img src="logo.png" alt="Enthalpio" class="logo">
@@ -116,7 +110,6 @@
                     </div>
                 </div>
 
-                <!-- ПРАВАЯ ЧАСТЬ: Свидетельство -->
                 <a href="#patentModal" class="patent-badge">
                     <img src="assets/patent-mini.png" alt="Свидетельство Роспатента" class="patent-img" onerror="this.style.display='none'">
                     <div class="patent-text">
@@ -128,7 +121,6 @@
         </div>
     </header>
 
-    <!-- Модальное окно -->
     <div id="patentModal" class="modal">
         <a href="#" class="close">&times;</a>
         <img class="modal-content" src="assets/patent-full.png" alt="Свидетельство Роспатента полное" onerror="this.src='https://via.placeholder.com/600x800/333/fff?text=Загрузите+patent-full.png+в+папку+assets'; this.style.border='2px dashed red';">
@@ -183,7 +175,6 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ «СКРИНШОТЫ ПК-ВЕРСИИ» -->
         <section class="screenshots-section">
             <div class="container">
                 <h2>Как выглядит ПК-версия</h2>
@@ -198,22 +189,18 @@
                         <img src="screenshots/desktop-main.png" alt="Главный экран Enthalpio для ПК">
                         <p class="screenshot-caption">Главный экран — быстрый старт</p>
                     </a>
-
                     <a href="screenshots/desktop-freon.png" class="screenshot" data-lightbox>
                         <img src="screenshots/desktop-freon.png" alt="Расчёт фреонопровода">
                         <p class="screenshot-caption">М3 — Фреонопровод: диаметры, ΔP, рекомендации</p>
                     </a>
-
                     <a href="screenshots/desktop-duct.png" class="screenshot" data-lightbox>
                         <img src="screenshots/desktop-duct.png" alt="Расчёт воздуховода">
                         <p class="screenshot-caption">М4 — Воздуховод: потери давления, вентилятор</p>
                     </a>
-
                     <a href="screenshots/desktop-datacenter.png" class="screenshot" data-lightbox>
                         <img src="screenshots/desktop-datacenter.png" alt="Подбор CRAC для ЦОД">
                         <p class="screenshot-caption">М6 — ЦОД: подбор прецизионных кондиционеров</p>
                     </a>
-
                     <a href="screenshots/desktop-chiller.png" class="screenshot" data-lightbox>
                         <img src="screenshots/desktop-chiller.png" alt="Модуль чиллеров">
                         <p class="screenshot-caption">М7 — Чиллеры: Comfort, Process, гидравлика</p>
@@ -222,7 +209,6 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ «ПРИМЕР PDF-ОТЧЁТА» -->
         <section class="pdf-section">
             <div class="container">
                 <h2>Пример PDF-отчёта</h2>
@@ -304,7 +290,6 @@
         </div>
     </footer>
 
-    <!-- ЛАЙТБОКС (модальное окно для скриншотов) -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <img id="lightbox-img" class="lightbox-img" src="" alt="">
