@@ -6,7 +6,7 @@
     <title>Enthalpio — отечественный инженерный комплекс для расчёта климатических систем</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- Стили для свидетельства -->
+    <!-- Стили для свидетельства и модального окна -->
     <style>
         .header-content {
             display: flex;
@@ -19,6 +19,8 @@
             align-items: center;
             gap: 15px;
         }
+        
+        /* Плашка */
         .patent-badge {
             display: flex;
             align-items: center;
@@ -28,6 +30,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s ease;
+            text-decoration: none; /* Убираем подчеркивание у ссылки */
         }
         .patent-badge:hover {
             background: rgba(255, 255, 255, 0.2);
@@ -53,8 +56,10 @@
         .patent-text span {
             color: #a0c4ff;
         }
+
+        /* --- МОДАЛЬНОЕ ОКНО НА ЧИСТОМ CSS --- */
         .modal {
-            display: none;
+            display: none; 
             position: fixed;
             z-index: 1000;
             padding-top: 50px;
@@ -65,6 +70,12 @@
             overflow: auto;
             background-color: rgba(0,0,0,0.9);
         }
+        
+        /* Открываем окно, когда в адресе появляется #patentModal */
+        .modal:target {
+            display: block;
+        }
+        
         .modal-content {
             margin: auto;
             display: block;
@@ -72,7 +83,9 @@
             max-height: 85vh;
             box-shadow: 0 0 20px rgba(255,255,255,0.2);
             border-radius: 8px;
+            border: 2px solid #fff;
         }
+        
         .close {
             position: absolute;
             top: 15px;
@@ -80,23 +93,15 @@
             color: #f1f1f1;
             font-size: 40px;
             font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover,
-        .close:focus {
-            color: #bbb;
             text-decoration: none;
-            cursor: pointer;
         }
+        .close:hover {
+            color: #bbb;
+        }
+
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .header-left {
-                flex-direction: column;
-                text-align: center;
-            }
+            .header-content { flex-direction: column; gap: 15px; }
+            .header-left { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -112,20 +117,23 @@
                     </div>
                 </div>
 
-                <div class="patent-badge" onclick="openPatent()">
-                    <img src="patent-mini.png" alt="Свидетельство Роспатента" class="patent-img" onerror="this.style.display='none'">
+                <!-- Плашка теперь ссылка на якорь -->
+                <a href="#patentModal" class="patent-badge">
+                    <img src="assets/patent-mini.png" alt="Свидетельство Роспатента" class="patent-img" onerror="this.style.display='none'">
                     <div class="patent-text">
                         <strong>Свидетельство Роспатента</strong>
                         <span>№ 2026692324</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </header>
 
+    <!-- Модальное окно -->
     <div id="patentModal" class="modal">
-        <span class="close" onclick="closePatent()">&times;</span>
-        <img class="modal-content" src="patent-full.png" alt="Свидетельство Роспатента полное">
+        <a href="#" class="close">&times;</a>
+        <!-- Если файла нет, покажет красную рамку с подсказкой -->
+        <img class="modal-content" src="assets/patent-full.png" alt="Свидетельство Роспатента полное" onerror="this.src='https://via.placeholder.com/600x800/333/fff?text=Загрузите+patent-full.png+в+папку+assets'; this.style.border='2px dashed red';">
     </div>
 
     <main>
@@ -138,13 +146,8 @@
                     Полноценное импортозамещение зарубежного расчётного ПО.
                 </p>
                 <div class="buttons">
-                    <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" 
-                       class="btn btn-primary">
-                        Скачать в RuStore
-                    </a>
-                    <a href="desktop.html" class="btn btn-secondary">
-                        ПК-версия
-                    </a>
+                    <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" class="btn btn-primary">Скачать в RuStore</a>
+                    <a href="desktop.html" class="btn btn-secondary">ПК-версия</a>
                 </div>
             </div>
         </section>
@@ -308,16 +311,14 @@
                 </div>
 
                 <p class="pricing-note">
-                    Оплата через RuStore Pay. Подписка автоматически 
-                    продлевается, отменить можно в настройках RuStore.
+                    Оплата через RuStore Pay. Подписка автоматически продлевается, отменить можно в настройках RuStore.
                 </p>
                 <p class="pricing-note" style="margin-top: 12px;">
                     Для корпоративных клиентов и пользователей 
                     Windows-версии возможна оплата по безналичному расчёту 
                     (прямой счёт для юрлиц и ИП). 
                     Для выставления счёта напишите на 
-                    <a href="mailto:enthalpio@mail.ru?subject=Счёт на Enthalpio">
-                        enthalpio@mail.ru</a>.
+                    <a href="mailto:enthalpio@mail.ru?subject=Счёт на Enthalpio">enthalpio@mail.ru</a>.
                 </p>
             </div>
         </section>
@@ -326,10 +327,7 @@
             <div class="container">
                 <h2>Начните считать прямо сейчас</h2>
                 <p>Бесплатно. Работает офлайн. Точность ±10%.</p>
-                <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" 
-                   class="btn btn-primary">
-                    Скачать Enthalpio
-                </a>
+                <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" class="btn btn-primary">Скачать Enthalpio</a>
             </div>
         </section>
     </main>
@@ -349,22 +347,5 @@
             <p class="copyright">© 2026 Enthalpio — скрытая теплота. Скрытый потенциал.</p>
         </div>
     </footer>
-
-    <script>
-        function openPatent() {
-            document.getElementById("patentModal").style.display = "block";
-        }
-
-        function closePatent() {
-            document.getElementById("patentModal").style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById("patentModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
