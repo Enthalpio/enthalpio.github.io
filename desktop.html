@@ -5,20 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ПК-версия — Enthalpio</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Стили для свидетельства (как на главной) -->
+    <style>
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap; /* Чтобы на мобильных переносилось */
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* Плашка */
+        .patent-badge {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+        .patent-badge:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .patent-img {
+            height: 30px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .patent-text {
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+        .patent-text strong {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .patent-text span {
+            color: #a0c4ff;
+        }
+
+        /* --- МОДАЛЬНОЕ ОКНО НА ЧИСТОМ CSS --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal:target {
+            display: block;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            border-radius: 8px;
+            border: 2px solid #fff;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .close:hover {
+            color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 15px; }
+            .header-left { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="back-home">← На главную</a>
-                <img src="logo.png" alt="Enthalpio" class="logo">
-                <div>
-                    <h1>Enthalpio</h1>
-                    <p class="tagline">Экосистема климатической отрасли</p>
+                <!-- ЛЕВАЯ ЧАСТЬ: Кнопка назад + Логотип -->
+                <div class="header-left">
+                    <a href="index.html" class="back-home">← На главную</a>
+                    <img src="logo.png" alt="Enthalpio" class="logo">
+                    <div>
+                        <h1>Enthalpio</h1>
+                        <p class="tagline">Экосистема климатической отрасли</p>
+                    </div>
                 </div>
+
+                <!-- ПРАВАЯ ЧАСТЬ: Свидетельство -->
+                <a href="#patentModal" class="patent-badge">
+                    <img src="assets/patent-mini.png" alt="Свидетельство Роспатента" class="patent-img" onerror="this.style.display='none'">
+                    <div class="patent-text">
+                        <strong>Свидетельство Роспатента</strong>
+                        <span>№ 2026692324</span>
+                    </div>
+                </a>
             </div>
         </div>
     </header>
+
+    <!-- Модальное окно -->
+    <div id="patentModal" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img class="modal-content" src="assets/patent-full.png" alt="Свидетельство Роспатента полное" onerror="this.src='https://via.placeholder.com/600x800/333/fff?text=Загрузите+patent-full.png+в+папку+assets'; this.style.border='2px dashed red';">
+    </div>
 
     <main>
         <section class="hero" style="padding: 60px 0;">
@@ -80,43 +194,28 @@
                 </p>
 
                 <div class="screenshots-grid">
-                    <a href="screenshots/desktop-main.png" 
-                       class="screenshot" 
-                       data-lightbox>
-                        <img src="screenshots/desktop-main.png" 
-                             alt="Главный экран Enthalpio для ПК">
+                    <a href="screenshots/desktop-main.png" class="screenshot" data-lightbox>
+                        <img src="screenshots/desktop-main.png" alt="Главный экран Enthalpio для ПК">
                         <p class="screenshot-caption">Главный экран — быстрый старт</p>
                     </a>
 
-                    <a href="screenshots/desktop-freon.png" 
-                       class="screenshot" 
-                       data-lightbox>
-                        <img src="screenshots/desktop-freon.png" 
-                             alt="Расчёт фреонопровода">
+                    <a href="screenshots/desktop-freon.png" class="screenshot" data-lightbox>
+                        <img src="screenshots/desktop-freon.png" alt="Расчёт фреонопровода">
                         <p class="screenshot-caption">М3 — Фреонопровод: диаметры, ΔP, рекомендации</p>
                     </a>
 
-                    <a href="screenshots/desktop-duct.png" 
-                       class="screenshot" 
-                       data-lightbox>
-                        <img src="screenshots/desktop-duct.png" 
-                             alt="Расчёт воздуховода">
+                    <a href="screenshots/desktop-duct.png" class="screenshot" data-lightbox>
+                        <img src="screenshots/desktop-duct.png" alt="Расчёт воздуховода">
                         <p class="screenshot-caption">М4 — Воздуховод: потери давления, вентилятор</p>
                     </a>
 
-                    <a href="screenshots/desktop-datacenter.png" 
-                       class="screenshot" 
-                       data-lightbox>
-                        <img src="screenshots/desktop-datacenter.png" 
-                             alt="Подбор CRAC для ЦОД">
+                    <a href="screenshots/desktop-datacenter.png" class="screenshot" data-lightbox>
+                        <img src="screenshots/desktop-datacenter.png" alt="Подбор CRAC для ЦОД">
                         <p class="screenshot-caption">М6 — ЦОД: подбор прецизионных кондиционеров</p>
                     </a>
 
-                    <a href="screenshots/desktop-chiller.png" 
-                       class="screenshot" 
-                       data-lightbox>
-                        <img src="screenshots/desktop-chiller.png" 
-                             alt="Модуль чиллеров">
+                    <a href="screenshots/desktop-chiller.png" class="screenshot" data-lightbox>
+                        <img src="screenshots/desktop-chiller.png" alt="Модуль чиллеров">
                         <p class="screenshot-caption">М7 — Чиллеры: Comfort, Process, гидравлика</p>
                     </a>
                 </div>
@@ -141,9 +240,7 @@
                             6 страниц · М1 + М2 + М3 + КИПиА · 
                             Q_холод = 8.39 кВт · R404A
                         </p>
-                        <a href="pdf/sample-nt.pdf" 
-                           target="_blank" 
-                           class="btn btn-primary">
+                        <a href="pdf/sample-nt.pdf" target="_blank" class="btn btn-primary">
                             Открыть PDF
                         </a>
                     </div>
@@ -155,25 +252,21 @@
             <div class="container">
                 <h2>Получить ПК-версию</h2>
                 <p>Windows 10 / 11 · 64-бит · По запросу</p>
-
                 <p style="margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
                     Профессиональная ПК-версия Enthalpio предоставляется 
                     по индивидуальному запросу практикующим специалистам, 
                     ГИПам и проектно-монтажным организациям.
                 </p>
-
                 <p style="margin-top: 24px; font-size: 14px;">
                     Для получения персонального дистрибутива 
                     Windows-версии (v1.1.1) направьте краткую заявку:
                 </p>
-
                 <p class="email" style="margin-top: 8px;">
                     <a href="mailto:enthalpio@mail.ru?subject=Запрос ПК-версии Enthalpio"
                        style="color: #FFFFFF; text-decoration: underline; font-weight: bold; font-size: 18px;">
                         enthalpio@mail.ru
                     </a>
                 </p>
-
                 <p style="margin-top: 20px; font-size: 14px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
                     В заявке укажите: имя / компанию, регион и профиль 
                     деятельности (проектировщик, ГИП, монтажник, 
@@ -188,8 +281,7 @@
             <div class="container">
                 <h2>Также — мобильная версия</h2>
                 <p>Скачайте Enthalpio для Android — все те же функции в телефоне.</p>
-                <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" 
-                   class="btn btn-primary">
+                <a href="https://www.rustore.ru/catalog/app/ru.enthalpio.app" class="btn btn-primary">
                     Скачать в RuStore
                 </a>
             </div>
@@ -224,7 +316,6 @@
             const lightboxImg = document.getElementById('lightbox-img');
             const closeBtn = document.querySelector('.lightbox-close');
 
-            // Открыть по клику на скриншот
             document.querySelectorAll('[data-lightbox]').forEach(function (el) {
                 el.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -233,13 +324,11 @@
                 });
             });
 
-            // Закрыть по крестику
             closeBtn.addEventListener('click', function () {
                 lightbox.classList.remove('active');
                 lightboxImg.src = '';
             });
 
-            // Закрыть по клику на фон
             lightbox.addEventListener('click', function (e) {
                 if (e.target === lightbox) {
                     lightbox.classList.remove('active');
@@ -247,7 +336,6 @@
                 }
             });
 
-            // Закрыть по Esc
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && lightbox.classList.contains('active')) {
                     lightbox.classList.remove('active');
